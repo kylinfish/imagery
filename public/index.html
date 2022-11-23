@@ -1,0 +1,101 @@
+<html>
+    <body>
+        <head>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        </head>
+
+        <title>Imagery | The tool can provide you image preview from text upload</title>
+        <nav class="navbar navbar-expand-md navbar-light bg-warning mb-4">
+            <div class="container">
+                <a href="#" class="navbar-brand"><i class="fas fa-pen-nib"></i> Imagery</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </nav>
+
+        <div class="container">
+            <h1>Image Gallery</h1>
+            <p>Upload the image url texts and names.</p>
+            <div class="my-4">
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="inputFile">
+                    <label class="custom-file-label" for="customFile">Upload Image Src List</label>
+                </div>
+            </div>
+
+            <div class="col-md">
+                <span class="lead"><span class="badge badge-info">Select:</span></span>
+                <p id="selectResults"></p>
+            </div>
+
+            <div class="row" id="gallery"></div>
+        </div>
+
+        <script>
+            let selectedList = [];
+            document.getElementById('inputFile').addEventListener('change', getFile)
+
+            function getFile(event) {
+                const input = event.target
+                if (! 'files'in input || input.files.length <= 0) {
+                    return
+                }
+
+                // Reset
+                selectedList = [];
+                document.getElementById("selectResults").innerHTML = '';
+                document.getElementById('gallery').innerHTML = '';
+
+                readFileContent(input.files[0]).then(content => {
+                    var separateLines = content.split(/\r?\n|\r|\n/g);
+                    separateLines.forEach(src => appendImgDom(src));
+
+                }).catch(error => console.log(error))
+            }
+
+            function readFileContent(file) {
+                const reader = new FileReader()
+                return new Promise((resolve, reject) => {
+                    reader.onload = event => resolve(event.target.result)
+                    reader.onerror = error => reject(error)
+                    reader.readAsText(file)
+                })
+            }
+
+            function appendToList(newItem, btn){
+                btn.className += " disabled"
+                selectedList.indexOf(newItem) === -1 ? selectedList.push(newItem) : console.log("This item already exists");
+                document.getElementById("selectResults").innerHTML = selectedList.join(', ')
+            }
+
+            function appendImgDom(src) {
+                const t = src.split(' ')[0];
+                const imgSrc = src.split(' ')[1];
+
+                const div = document.createElement("div");
+                div.className = 'text-center col-sm-6 col-md-3 mb-5'
+
+                const title = document.createElement("p")
+                title.innerHTML = t
+                div.appendChild(title)
+
+                const img = new Image(380, 280);
+                img.className = 'fluid img-thumbnail'
+                img.loading = "lazy";
+                img.src = imgSrc
+                img.setAttribute('data-src', imgSrc);
+                div.appendChild(img)
+
+                const btn = document.createElement("button");
+                btn.innerHTML = "Select";
+                btn.className = "mt-1 btn btn-sm btn-warning actionBtn"
+                btn.setAttribute("onclick", `appendToList('${t}', this)`);
+                div.appendChild(btn)
+
+                document.getElementById('gallery').appendChild(div);
+            }
+        </script>
+    </body>
+</html>
