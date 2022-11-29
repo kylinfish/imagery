@@ -1,0 +1,11 @@
+Paris https://a.travel-assets.com/findyours-php/viewfinder/images/res70/84000/84621-Paris.jpg
+London https://a.cdn-hotels.com/gdcs/production29/d1870/6a5ec560-bb25-11e8-970b-0242ac110006.jpg
+Milano https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJR8eQYRzsDCsLkEvO03nbrXZsqDI9-MhfTw&usqp=CAU
+Prague https://www.hotelscombined.com.tw/rimg/dimg/9e/18/e2c93cc1-city-19865-14f8f9d7e6b.jpg
+Blue https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/ipad-2022-hero-blue-wifi-select?wid=470&hei=556&fmt=png-alpha&.v=1664387252369
+Pink https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/ipad-2022-hero-pink-wifi-select?wid=470&hei=556&fmt=png-alpha&.v=1664387253676
+Sliver https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/ipad-2022-hero-silver-wifi-select?wid=470&hei=556&fmt=png-alpha&.v=1664387253665
+Yellow https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/ipad-2022-hero-yellow-wifi-select?wid=470&hei=556&fmt=png-alpha&.v=1664387253668
+SE_White https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-se-storage-select-202207-starlight?wid=2560&hei=1440&fmt=p-jpg&qlt=80&.v=1655312146316
+SE_Red https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-se-finish-select-202207-product-red?wid=2560&hei=1440&fmt=p-jpg&qlt=80&.v=1655316263304
+SE_Black https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-se-finish-select-202207-midnight?wid=2560&hei=1440&fmt=p-jpg&qlt=80&.v=1655316263296
