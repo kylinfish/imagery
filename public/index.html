@@ -71,6 +71,8 @@
             }
 
             function appendImgDom(src) {
+                if (!src) { return; }
+
                 const t = src.split(' ')[0];
                 const imgSrc = src.split(' ')[1];
 
